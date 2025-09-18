@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact Form - Medicare</title>
+  <link rel="stylesheet" href="css/contact.css">
+</head>
+<body style="background-image:url('1.jpg'); background-repeat:no-repeat; background-size:cover; background-size: cover; background-position: center;">
+  <div class="card">
+    <h1>Contact Developer</h1>
+
+    <!-- Simple form (HTML only). Change action attribute to your backend if needed -->
+    <form action="#" method="post" novalidate>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="example@gmail.com" required>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="phone">Contact Number</label>
+          <input id="phone" name="phone" type="tel" placeholder="+91-9876543210" pattern="[+\d\s\-()]{7,}" required>
+        </div>
+
+        <div class="field">
+          <label for="category">Category</label>
+          <select id="category" name="category" required>
+            <option value="">Patient dashboard issue</option>
+            <option value="web">Doctor dashboard issue</option>
+            <option value="db">Database issue</option>
+            <option value="ui">UI / UX issue</option>
+            <option value="other">Other issue</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="message">Chat / Message</label>
+        <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+        <div class="help">Please keep the message short and clear.</div>
+      </div>
+
+      <button type="submit" class="btn-send">Send</button>
+    </form>
+  </div>
+</body>
+</html>

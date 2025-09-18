@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCare - Login & Register</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body style="background-image:url('2.jpg'); background-repeat:no-repeat; background-size:cover; background-size: cover; background-position: center;">
+    <div class="auth-container">
+        <div class="logo">MediCare</div>
+        <p class="subtitle">Healthcare Communication Platform</p>
+
+        <div class="form-toggle">
+            <button class="toggle-btn active" onclick="switchForm('login')">Login</button>
+            <button class="toggle-btn" onclick="switchForm('signup')">Sign Up</button>
+        </div>
+
+        <div id="message-container"></div>
+
+        <!-- Login Form -->
+        <form id="loginForm" style="display: block;">
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" id="loginEmail" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="loginPassword" placeholder="Enter your password" required>
+            </div>
+
+            <div class="forgot-password">
+                <a href="#"
+                    onclick="alert('Password reset functionality will be added with backend integration!')">Forgot
+                    Password?</a>
+            </div>
+
+            <button type="submit" class="btn-primary">Login to Account</button>
+        </form>
+        <!-- Admin Login Button -->
+        <button type="button" class="btn btn-secondary" id="adminLoginBtn">Admin Login</button>
+
+        <!-- Admin Login Modal -->
+        <div id="adminModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Admin Login</h2>
+                <form id="adminForm">
+                    <input type="email" id="adminEmail" placeholder="Enter Admin Email" required><br>
+                    <input type="password" id="adminPass" placeholder="Enter Password" required><br>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+
+
+        <!-- Signup Form -->
+        <form id="signupForm" style="display: none;">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="signupName" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" id="signupEmail" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="signupPassword" placeholder="Create a password" required>
+            </div>
+
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+            </div>
+
+            <div class="role-selector">
+                <div class="role-option" onclick="selectRole('doctor')">
+                    <div class="icon">👨‍⚕️</div>
+                    <div class="title">Doctor</div>
+                </div>
+                <div class="role-option" onclick="selectRole('patient')">
+                    <div class="icon">👤</div>
+                    <div class="title">Patient</div>
+                </div>
+            </div>
+
+            <div id="doctorFields" style="display: none;">
+                <div class="form-group">
+                    <label>Medical License Number</label>
+                    <input type="text" id="licenseNumber" placeholder="Enter license number">
+                </div>
+                <div class="form-group">
+                    <label>Specialization</label>
+                    <select id="specialization">
+                        <option value="">Select Specialization</option>
+                        <option value="cardiology">Cardiology</option>
+                        <option value="dermatology">Dermatology</option>
+                        <option value="neurology">Neurology</option>
+                        <option value="pediatrics">Pediatrics</option>
+                        <option value="orthopedics">Orthopedics</option>
+                        <option value="general">General Practice</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="patientFields" style="display: none;">
+                <div class="form-group">
+                    <label>Date of Birth</label>
+                    <input type="date" id="dateOfBirth">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="phoneNumber" placeholder="Enter phone number">
+                </div>
+            </div>
+
+            <button type="submit" class="btn-primary">Create Account</button>
+        </form>
+
+        <!-- Demo Accounts -->
+        <div class="demo-accounts">
+            <h4>🧪 Demo Accounts (Click to Auto-fill)</h4>
+            <div class="demo-account" onclick="fillDemoAccount('dr.priya@hospital.com', 'password123')">
+                <span class="email">dr.priya@hospital.com</span>
+                <span class="role">Doctor</span>
+            </div>
+
+            <div class="demo-account" onclick="fillDemoAccount('arjun.kumar@email.com', 'password123')">
+                <span class="email">arjun.kumar@email.com</span>
+                <span class="role">Patient</span>
+            </div>
+
+        </div>
+        <!-- Contact Us -->
+        <div class="contact-link">
+            📞 Need Help? <a href="contact.html">Contact Us</a>
+        </div>
+    </div>
+
+
+    <script src="js/index.js"></script>
+</body>
+
+</html>

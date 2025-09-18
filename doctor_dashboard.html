@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediCare - Doctor Dashboard</title>
+  <link rel="stylesheet" href="css/doctor.css">
+</head>
+
+<body style="background-image:url('2.jpg'); background-repeat:no-repeat; background-size:cover; background-size: cover; background-position: center;">>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="logo">
+      <h2>MediCare</h2>
+    </div>
+    <div class="profile">
+      <img src="https://cdn-icons-png.flaticon.com/512/387/387561.png" alt="Doctor">
+      <p><b>Dr. Priya Sharma</b><br>Cardiologist</p>
+    </div>
+    <ul class="nav-menu">
+      <li><a class="nav-link active" onclick="showSection('dashboard')">📊 Dashboard</a></li>
+      <li><a class="nav-link" onclick="showSection('appointments')">📅 View Appointments</a></li>
+      <li><a class="nav-link" onclick="showSection('chat')">💬 Chat with Patients</a></li>
+      <li><a class="nav-link" onclick="showSection('prescriptions')">📝 Write Prescriptions</a></li>
+    </ul>
+     <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="header">
+      <h1>Welcome Doctor</h1>
+      <p>Manage appointments, chat with patients, and write prescriptions</p>
+    </div>
+
+    <!-- Dashboard Section -->
+    <div id="dashboard" class="content-section active">
+      <div class="dashboard-cards">
+        <div class="card">
+          <div class="card-icon">📅</div>
+          <h3>Appointments</h3>
+          <p>Check patient bookings</p>
+          <button class="card-btn" onclick="showSection('appointments')">View</button>
+        </div>
+        <div class="card">
+          <div class="card-icon">💬</div>
+          <h3>Chat</h3>
+          <p>Chat with your patients</p>
+          <button class="card-btn" onclick="showSection('chat')">Open</button>
+        </div>
+        <div class="card">
+          <div class="card-icon">📝</div>
+          <h3>Prescriptions</h3>
+          <p>Issue and manage prescriptions</p>
+          <button class="card-btn" onclick="showSection('prescriptions')">Write</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Appointments Section -->
+    <div id="appointments" class="content-section">
+      <h2>Patient Appointments</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Patient</th>
+            <th>Reason</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2024-01-20</td>
+            <td>10:00 AM</td>
+            <td>Rahul Kumar</td>
+            <td>Regular Checkup</td>
+            <td>Confirmed</td>
+          </tr>
+          <tr>
+            <td>2024-01-18</td>
+            <td>2:00 PM</td>
+            <td>Arjun Kumar</td>
+            <td>Follow-up</td>
+            <td>Pending</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Chat Section -->
+    <div id="chat" class="content-section">
+      <h2>Chat with Patients</h2>
+      <div class="chat-container">
+        <div class="chat-messages" id="chatMessages">
+          <div class="message received"><b>Rahul Kumar:</b><br>Hello Doctor!</div>
+          <div class="message sent">Hello Rahul, how are you?</div>
+        </div>
+        <div style="display:flex; padding:10px; background:white; border-top:1px solid #ddd;">
+          <input type="text" id="chatInput" placeholder="Type message..." style="flex:1; padding:8px;">
+          <button onclick="sendMessage()">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prescriptions Section -->
+    <div id="prescriptions" class="content-section">
+      <h2>Write Prescription</h2>
+      <form id="prescriptionForm">
+        <label>Patient Name</label>
+        <input type="text" id="patientName" required><br><br>
+        <label>Medication</label>
+        <input type="text" id="medication" required><br><br>
+        <label>Dosage</label>
+        <input type="text" id="dosage" required><br><br>
+        <label>Duration</label>
+        <input type="text" id="duration" required><br><br>
+        <button type="submit">Save Prescription</button>
+      </form>
+      <h3 style="margin-top:20px;">Issued Prescriptions</h3>
+      <table id="prescriptionList">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Patient</th>
+            <th>Medication</th>
+            <th>Dosage</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2024-01-15</td>
+            <td>Rahul Kumar</td>
+            <td>Lisinopril</td>
+            <td>10mg</td>
+            <td>30 days</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script src="js/doctor.js"></script>
+</body>
+
+</html>
